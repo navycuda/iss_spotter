@@ -21,16 +21,8 @@ const fetchMyIp = (callback) => {
 };
 // fetches coordinates by ip
 const fetchCoordsByIp = (ip, callback) => {
-
-
-
   request(urlGp + ip, (error, response, body) => {
-
-
-
-    
     const jsonObject = JSON.parse(body);
-    
     if (jsonObject.success) {
       callback(null, {
         latitude : jsonObject.latitude,

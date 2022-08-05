@@ -14,16 +14,9 @@ fetchMyIp((error, ip) => {
   //   return;
   // }
   // console.log('It worked! Returned IP:' , ip);
-
   fetchCoordsByIp(ip, (error, data) => {
-
-
     console.log(`error: `, error);
     console.log(`data : `, data);
-
-
-
-
   }); // fetchCoordsByIp
 }); // fetchMyIp
 
