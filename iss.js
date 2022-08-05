@@ -37,7 +37,7 @@ const fetchCoordsByIp = (ip, callback) => {
         longitude: jsonObject.longitude
       });
     } else {
-      console.log(`error :`, error, `\nresponse:`, response, `\nbody:`, body);
+      callback(`${ip} is not a valid ip4 address`, null);
     }
   }); // request
 }; // fetchCoordsByIp
