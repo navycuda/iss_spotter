@@ -12,6 +12,7 @@
   "author": "navycuda",
   "license": "ISC",
   "dependencies": {
+    "@navycuda/lotide": "^1.0.1",
     "request": "^2.88.2"
   },
   "devDependencies": {
