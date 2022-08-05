@@ -33,11 +33,18 @@ const fetchCoordsByIp = (ip, callback) => {
     }
   }); // request
 }; // fetchCoordsByIp
+// fetch iss flyover times
+const fetchISSFlyOverTimes = (coordinates, callback) => {
+
+  callback(coordinates, null);
+
+};
 
 /* Local Functions */
 /* Execution & Test Data */
 /* Exports */
 module.exports = {
   fetchMyIp,
-  fetchCoordsByIp
+  fetchCoordsByIp,
+  fetchISSFlyOverTimes
 };

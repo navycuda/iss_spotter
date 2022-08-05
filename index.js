@@ -1,7 +1,7 @@
 /* Require */
 const request = require(`request`);
 const { outputToConsole } = require(`@navycuda/lotide`);
-const { fetchMyIp, fetchCoordsByIp } = require("./iss");
+const { fetchMyIp, fetchCoordsByIp, fetchISSFlyOverTimes } = require("./iss");
 
 /* Tcp:Http */
 /* Arguments */
@@ -17,6 +17,14 @@ fetchMyIp((error, ip) => {
   fetchCoordsByIp(ip, (error, data) => {
     console.log(`error: `, error);
     console.log(`data : `, data);
+    fetchISSFlyOverTimes(data, () => {
+
+
+      
+
+
+
+    }); // fetchCoordsByIp
   }); // fetchCoordsByIp
 }); // fetchMyIp
 
