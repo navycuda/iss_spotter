@@ -2,13 +2,14 @@
 const request = require(`request`);
 
 /* Tcp:Http */
-const fetchIp = `https://api64.ipify.org/?format=json`;
+const urlIp = `https://api64.ipify.org/?format=json`;
+const urlGp = `http://ipwho.is/`;
 
 /* Arguments */
 /* Export Functions */
 // Fetchs my ip address
 const fetchMyIp = (callback) => {
-  request(fetchIp, (error, response, body) => {
+  request(urlIp, (error, response, body) => {
     if (error) return callback(error, null);
     if (response.statusCode !== 200) {
       callback(Error(`Status Code ${response.statusCode} when fetching IP: ${body}`), null);
@@ -18,12 +19,20 @@ const fetchMyIp = (callback) => {
     callback(null, ip);
   });
 };
+// fetches coordinates by ip
 const fetchCoordsByIp = (ip, callback) => {
 
 
-  callback(ip, `cheese`);
 
-  
+  request(urlGp + ip, (error, response, body) => {
+
+
+
+    console.log(`error :`, error, `\nresponse:`, response, `\nbody:`, body);
+    callback(null, body);
+
+
+  });
 };
 
 /* Local Functions */
