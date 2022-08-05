@@ -59,6 +59,25 @@ const fetchISSFlyOverTimes = (coordinates, callback) => {
     callback(null, jsonObject);
   });
 };
+/**
+ * This is the focal point of the above functions.
+ * Handles multiple api requests to get the next
+ * five times the ISS will flyover
+ * input
+ *  - callback with an error or results
+ * returns
+ *  - An error or null
+ *  - array of flyover times or null:
+ *    [{ risetime: <number>, durations: <number>}, ... ]
+ */
+const nextIssTimesForMyLocation = () => {
+
+
+
+
+
+
+};
 
 /* Local Functions */
 /* Execution & Test Data */
