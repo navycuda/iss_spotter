@@ -28,12 +28,19 @@ const fetchCoordsByIp = (ip, callback) => {
 
 
 
-    console.log(`error :`, error, `\nresponse:`, response, `\nbody:`, body);
-    callback(null, body);
-
-
-  });
-};
+    
+    const jsonObject = JSON.parse(body);
+    
+    if (jsonObject.success) {
+      callback(null, {
+        latitude : jsonObject.latitude,
+        longitude: jsonObject.longitude
+      });
+    } else {
+      console.log(`error :`, error, `\nresponse:`, response, `\nbody:`, body);
+    }
+  }); // request
+}; // fetchCoordsByIp
 
 /* Local Functions */
 /* Execution & Test Data */
