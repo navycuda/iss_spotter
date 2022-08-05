@@ -20,9 +20,16 @@ const fetchMyIp = (callback) => {
 };
 const fetchCoordsByIp = (ip, callback) => {
 
+
+  callback(ip, `cheese`);
+
+  
 };
 
 /* Local Functions */
 /* Execution & Test Data */
 /* Exports */
-module.exports = { fetchMyIp };
+module.exports = {
+  fetchMyIp,
+  fetchCoordsByIp
+};
