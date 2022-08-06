@@ -1,7 +1,7 @@
 /* Require */
 const request = require(`request`);
 const outputToConsole = require(`@navycuda/lotide`).outputToConsole;
-const { nextISSTimesForMyLocation } = require("./iss");
+const { nextIssTimesForMyLocation } = require("./iss");
 
 /* Tcp:Http */
 /* Arguments */
@@ -20,5 +20,9 @@ const { nextISSTimesForMyLocation } = require("./iss");
 //     }); // fetchCoordsByIp
 //   }); // fetchCoordsByIp
 // }); // fetchMyIp
+
+nextIssTimesForMyLocation((error, flyOvers) => {
+  outputToConsole(error, flyOvers);
+});
 
 /* Exports */
