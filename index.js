@@ -24,22 +24,11 @@ const outputToConsole = (error, flyOvers) => {
 
   for (let f = 0; f < flyOvers.length; f++) {
 
-    const timeInMs = flyOvers[f].risetime * 1000;
+    const date = new Date(0);
+    date.setUTCSeconds(flyOvers[f].risetime);
+    
 
-    const date = new Date(timeInMs);
-
-    const dateFormat = new Intl.DateTimeFormat('en-US', {
-      timeZone: `America/Vancouver`,
-    });
-
-    const outputDate = dateFormat.format(date);
-
-    console.log(dateFormat);
-    console.log(date.toLocaleTimeString("en-US", { timeZone: `America/Vancouver` ,hour: `2-digit`, hour12: false, minute: `2-digit`, second: `2-digit`, timeZoneName: 'long'  }));
-    console.log(date.toDateString());
-    console.log(date.toTimeString());
-
-    // console.log(`Next pass at ${dateString} for ${flyOvers[f].duration} seconds`);
+    console.log(`Next pass at ${date.toLocaleString({ timeZone: `America/Vancouver` })} for ${flyOvers[f].duration} seconds`);
 
   }
 

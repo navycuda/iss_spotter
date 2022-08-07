@@ -45,16 +45,7 @@ const fetchCoordsByIp = (ip, callback) => {
 const fetchISSFlyOverTimes = (coordinates, callback) => {
   // request(`${urlIss}?lat=coordinates.latitude&lon=coordinates.longitude`, (error, response, body) => {
   request(`${urlIss}?lat=${coordinates.latitude}&lon=${coordinates.longitude}`, (error, response, body) => {
-    // console.log(`error::`,error);
-    // console.log(`response::`, response);
-    // console.log(`body::`, body);
-    if (error) {
-      callback(error, null);
-      return;
-    }  else if (response.statusCode !== 200) {
-      callback(`Status Code / Error: ${response.statusCode} when fetching Iss pass times: ${body}`, null);
-      return;
-    }
+    if (error) return callback(`Status Code / Error: ${response.statusCode} when fetching Iss pass times: ${body}`, null);
     const jsonObject = JSON.parse(body);
     callback(null, jsonObject);
   });
@@ -72,13 +63,11 @@ const fetchISSFlyOverTimes = (coordinates, callback) => {
  */
 const nextIssTimesForMyLocation = (callback) => {
   fetchMyIp((error, ip) => {
-    // if (error) {
-    //   console.log("It didn't work!" , error);
-    //   return;
-    // }
-    // console.log('It worked! Returned IP:' , ip);
+    if (error) return callback(error, null);
     fetchCoordsByIp(ip, (error, data) => {
+      if (error) return callback(error, null);
       fetchISSFlyOverTimes(data, (error, data) => {
+        if (error) return callback(error, null);
         callback(error, data.response);
       }); // fetchCoordsByIp
     }); // fetchCoordsByIp
