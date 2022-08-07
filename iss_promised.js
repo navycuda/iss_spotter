@@ -7,7 +7,7 @@ const urlIp = `https://api64.ipify.org/?format=json`;
 /* Arguments */
 /* Export Functions */
 const fetchMyIp = () => {
-
+  return request(urlIp);
 };
 
 /* Local Functions */
