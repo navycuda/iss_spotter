@@ -12,7 +12,8 @@ const fetchMyIp = () => {
   return request(urlIp);
 };
 const fetchCoordsByIP = (body) => {
-  return request(urlGps + body.ip);
+  const ip = JSON.parse(body).ip;
+  return request(`${urlGps}${ip}`);
 };
 
 /* Local Functions */
