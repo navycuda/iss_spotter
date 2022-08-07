@@ -1,6 +1,5 @@
 /* Require */
 const request = require(`request`);
-const outputToConsole = require(`@navycuda/lotide`).outputToConsole;
 const { nextIssTimesForMyLocation } = require("./iss");
 
 /* Tcp:Http */
@@ -20,6 +19,33 @@ const { nextIssTimesForMyLocation } = require("./iss");
 //     }); // fetchCoordsByIp
 //   }); // fetchCoordsByIp
 // }); // fetchMyIp
+
+const outputToConsole = (error, flyOvers) => {
+
+  for (let f = 0; f < flyOvers.length; f++) {
+
+    const timeInMs = flyOvers[f].risetime * 1000;
+
+    const date = new Date(timeInMs);
+
+    const dateFormat = new Intl.DateTimeFormat('en-US', {
+      timeZone: `America/Vancouver`,
+    });
+
+    const outputDate = dateFormat.format(date);
+
+    console.log(dateFormat);
+    console.log(date.toLocaleTimeString("en-US", { timeZone: `America/Vancouver` ,hour: `2-digit`, hour12: false, minute: `2-digit`, second: `2-digit`, timeZoneName: 'long'  }));
+    console.log(date.toDateString());
+    console.log(date.toTimeString());
+
+    // console.log(`Next pass at ${dateString} for ${flyOvers[f].duration} seconds`);
+
+  }
+
+
+
+};
 
 nextIssTimesForMyLocation((error, flyOvers) => {
   outputToConsole(error, flyOvers);
