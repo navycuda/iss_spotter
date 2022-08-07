@@ -1,5 +1,5 @@
 /* Require */
-const { fetchMyIp, fetchCoordsByIP  } = require(`./iss_promised`);
+const { fetchMyIp, fetchCoordsByIP, fetchISSFlyOverTimes  } = require(`./iss_promised`);
 
 /* Tcp:Http */
 /* Arguments */
@@ -8,6 +8,7 @@ const { fetchMyIp, fetchCoordsByIP  } = require(`./iss_promised`);
 /* Execution & Test Data */
 fetchMyIp()
   .then(fetchCoordsByIP)
+  .then(fetchISSFlyOverTimes)
   .then(body => console.log(body));
 
 /* Exports */
