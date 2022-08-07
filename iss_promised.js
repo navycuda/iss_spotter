@@ -13,3 +13,4 @@ const fetchMyIp = () => {
 /* Local Functions */
 /* Execution & Test Data */
 /* Exports */
+module.exports = { fetchMyIp  };
