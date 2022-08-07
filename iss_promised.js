@@ -19,8 +19,17 @@ const fetchISSFlyOverTimes = (body) => {
   const { latitude, longitude } = JSON.parse(body);
   return request(`${urlIss}?lat=${latitude}&lon=${longitude}`);
 };
+const nextIssTimesForMyLocation = () => {
+  return fetchMyIp()
+    .then(fetchCoordsByIP)
+    .then(fetchISSFlyOverTimes)
+    .then((data) => {
+      const { response } = JSON.parse(data);
+      return response;
+    });
+};
 
 /* Local Functions */
 /* Execution & Test Data */
 /* Exports */
-module.exports = { fetchMyIp, fetchCoordsByIP, fetchISSFlyOverTimes };
+module.exports = { nextIssTimesForMyLocation };
